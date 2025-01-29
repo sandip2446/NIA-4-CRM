@@ -1,0 +1,71 @@
+﻿@model NIA_4_CRM.Models.Member
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="display-4 text-center my-4">Create Member</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="card-title mb-0">Member Details</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" method="post" id="createForm">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <!-- Organization Dropdown -->
+                        <div class="form-group">
+                            <label asp-for="OrganizationId" class="control-label">Organization</label>
+                            <select asp-for="OrganizationId" class="form-control" asp-items="ViewBag.OrganizationId" id="organizationDropdown">
+                                <option value="">Select Organization</option>
+                            </select>
+                            <span asp-validation-for="OrganizationId" class="text-danger"></span>
+                        </div>
+
+                        <!-- Membership Start Date -->
+                        <div class="form-group">
+                            <label asp-for="MembershipStartDate" class="control-label">Membership Start Date</label>
+                            <input asp-for="MembershipStartDate" class="form-control" type="date" />
+                            <span asp-validation-for="MembershipStartDate" class="text-danger"></span>
+                        </div>
+
+                        <!-- Membership Renew Date -->
+                        <div class="form-group">
+                            <label asp-for="MembershipRenewDate" class="control-label">Membership Renew Date</label>
+                            <input asp-for="MembershipRenewDate" class="form-control" type="date" />
+                            <span asp-validation-for="MembershipRenewDate" class="text-danger"></span>
+                        </div>
+
+                        <!-- Membership Type -->
+                        <div class="form-group">
+                            <label asp-for="MembershipTypeId" class="control-label">Membership Type</label>
+                            <select asp-for="MembershipTypeId" class="form-control" asp-items="ViewBag.MembershipTypeId"></select>
+                        </div>
+
+                        <!-- Contact Dropdown -->
+                        <div class="form-group">
+                            <label asp-for="ContactID" class="control-label">Contact</label>
+                            <select asp-for="ContactID" class="form-control" asp-items="ViewBag.ContactID" id="ContactID">
+                                <option value="">Select Contact</option>
+                            </select>
+                            <span asp-validation-for="ContactID" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Status" class="control-label"></label>
+                            <select asp-for="Status" class="form-control" asp-items="Html.GetEnumSelectList<Status>()"></select>
+                            <span asp-validation-for="Status" class="text-danger"></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <a asp-action="Index" class="btn btn-secondary btn-lg rounded-pill custom-btn">Back to List</a>
+                    <input type="submit" value="Create" class="btn btn-danger btn-lg rounded-pill custom-btn" form="createForm" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

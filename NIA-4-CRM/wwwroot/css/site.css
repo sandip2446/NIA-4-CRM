@@ -1,0 +1,199 @@
+html {
+    font-size: 16px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-family: SF Pro Text, Arial, sans-serif;
+}
+/*Custom Card design*/
+.custom-card {
+    border-radius: 20px;
+    background: #ffffff;
+}
+
+.custom-card-img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+/* Button Styles */
+.btn-danger {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 50px;
+    background-color: #AD1414; 
+    color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Recent Interactions Styles */
+.list-group-item {
+    font-size: 14px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+}
+
+    .list-group-item:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .list-group-item:nth-child(odd) {
+        background-color: #ffffff;
+    }
+  
+* {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Cards Hover*/
+.custom-card:hover {
+    transform: scale(1.05);
+}
+
+/* Button Hover*/
+.btn-danger:hover {
+    background-color: #F07575; 
+    color: black;
+    box-shadow: 0 4px 10px rgba(173, 20, 20, 0.4); 
+}
+
+/* interaction-hover */
+.list-group-item:hover {
+    background-color: #f0f0f0; 
+    border-color: #ccc; 
+    cursor: pointer;
+}
+
+.navbar .nav-link {
+    color: #343a40;
+    position: relative; 
+     transition: all 0.3s ease-in-out; /* Smooth transition */
+}
+
+
+    .navbar .nav-link:hover {
+        color: #AD1414; /* Change text color to dark red */
+    }
+
+    .navbar .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -5px; 
+        height: 2px; /* Thickness of underline */
+        background-color: #AD1414; /* Underline color */
+        transform: scaleX(0); /* Start hidden */
+        transition: transform 0.3s ease-in-out; /* Smooth scaling */
+    }
+
+    /* On Hover, Show Underline */
+    .navbar .nav-link:hover::after {
+        transform: scaleX(1); /* Full underline */
+    }
+
+    /* Custom Button Styles */
+    .custom-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 50px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .btn-primary.custom-btn {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn-primary.custom-btn:hover {
+        background-color: #0056b3;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+    }
+
+    .btn-secondary.custom-btn {
+        background-color: #6c757d;
+        color: white;
+    }
+
+    .btn-secondary.custom-btn:hover {
+        background-color: #5a6268;
+        color white;
+        box-shadow: 0 4px 10px rgba(108, 117, 125, 0.4);
+    }
+
+/* Action Button Styles */
+.action-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-danger.action-btn {
+    border-color: #AD1414;
+    color: #AD1414;
+}
+
+    .btn-outline-danger.action-btn:hover {
+        background-color: #F07575;
+        color: black;
+        box-shadow: 0 4px 10px rgba(173, 20, 20, 0.4);
+    }
+
+/* Table Styles */
+.table {
+    margin-top: 20px;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+    .table thead {
+        background-color: #343a40;
+        color: white;
+    }
+
+.table-hover tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.table-bordered th, .table-bordered td {
+    border: 1px solid #dee2e6;
+    padding: 12px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Column Styles */
+.phone-column {
+    width: 300px;
+}
+
+.name-column {
+    width: 300px;
+}
+
+.email-column {
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

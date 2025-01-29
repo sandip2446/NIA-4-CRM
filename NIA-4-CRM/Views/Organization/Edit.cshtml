@@ -1,0 +1,103 @@
+﻿@model NIA_4_CRM.Models.Organization
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="display-4 text-center my-4">Edit Business</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="card-title mb-0">Organization Details</h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit" method="post" id="editForm">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+                        <input type="hidden" asp-for="Id" />
+
+                        <!-- Organization Name -->
+                        <div class="form-group">
+                            <label asp-for="OrgName" class="control-label">Organization Name</label>
+                            <input asp-for="OrgName" class="form-control" />
+                            <span asp-validation-for="OrgName" class="text-danger"></span>
+                        </div>
+
+                        <!-- Website -->
+                        <div class="form-group">
+                            <label asp-for="Website" class="control-label">Website</label>
+                            <input asp-for="Website" class="form-control" />
+                            <span asp-validation-for="Website" class="text-danger"></span>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label">Email</label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <!-- Phone Number -->
+                        <div class="form-group">
+                            <label asp-for="PhoneNumber" class="control-label">Phone Number</label>
+                            <input asp-for="PhoneNumber" class="form-control" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        </div>
+
+                        <!-- Industry Type -->
+                        <div class="form-group">
+                            <label asp-for="IndustryTypeId" class="control-label">Industry Type</label>
+                            <select asp-for="IndustryTypeId" class="form-control" asp-items="ViewBag.IndustryTypeId"></select>
+                            <span asp-validation-for="IndustryTypeId" class="text-danger"></span>
+                        </div>
+
+                        <!-- Street Address -->
+                        <div class="form-group">
+                            <label asp-for="StreetAddress" class="control-label">Street Address</label>
+                            <input asp-for="StreetAddress" class="form-control" />
+                            <span asp-validation-for="StreetAddress" class="text-danger"></span>
+                        </div>
+
+                        <!-- City -->
+                        <div class="form-group">
+                            <label asp-for="City" class="control-label">City</label>
+                            <input asp-for="City" class="form-control" />
+                            <span asp-validation-for="City" class="text-danger"></span>
+                        </div>
+
+                        <!-- State/Province -->
+                        <div class="form-group">
+                            <label asp-for="StateProvince" class="control-label">State/Province</label>
+                            <input asp-for="StateProvince" class="form-control" />
+                            <span asp-validation-for="StateProvince" class="text-danger"></span>
+                        </div>
+
+                        <!-- Postal Code -->
+                        <div class="form-group">
+                            <label asp-for="PostalCode" class="control-label">Postal Code</label>
+                            <input asp-for="PostalCode" class="form-control" />
+                            <span asp-validation-for="PostalCode" class="text-danger"></span>
+                        </div>
+
+                        <!-- Date of Incorporation -->
+                        <div class="form-group">
+                            <label asp-for="DOI" class="control-label">Date of Incorporation</label>
+                            <input asp-for="DOI" class="form-control" type="date" />
+                            <span asp-validation-for="DOI" class="text-danger"></span>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <input type="submit" value="Save" class="btn btn-danger btn-lg rounded-pill custom-btn" form="editForm" />
+                    <a asp-action="Index" class="btn btn-secondary btn-lg rounded-pill custom-btn">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

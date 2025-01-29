@@ -1,0 +1,25 @@
+﻿@model IEnumerable<NIA_4_CRM.Models.Member>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover shadow-lg">
+        <thead class="thead-dark">
+            <tr>
+                <th>Organization Name</th>
+                <th>Membership Type</th>
+                <th>Contact Person</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var member in Model)
+            {
+                <tr>
+                    <td>@member.Organization.OrgName</td>
+                    <td>@member.MembershipType.MembershipName</td>
+                    <td>@member.Contact.FullName</td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

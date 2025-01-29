@@ -1,0 +1,51 @@
+﻿@model NIA_4_CRM.Models.Organization
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="display-4 text-center my-4">Delete Business</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-header bg-danger text-white">
+                    <h3 class="card-title mb-0">Are you sure you want to delete this?</h3>
+                </div>
+                <div class="card-body">
+                    <h4>Organization Details</h4>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.OrgName)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.OrgName)</dd>
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Website)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Website)</dd>
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Email)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.Email)</dd>
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.PhoneNumber)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.PhoneNumber)</dd>
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.IndustryType)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.IndustryType.Name)</dd>
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.StreetAddress)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.StreetAddress)</dd>
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.City)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.City)</dd>
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.StateProvince)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.StateProvince)</dd>
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.PostalCode)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.PostalCode)</dd>
+                        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.DOI)</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(model => model.DOI)</dd>
+                    </dl>
+                </div>
+                <div class="card-footer d-flex justify-content-between">
+                    <form asp-action="Delete" method="post" class="d-inline">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="submit" value="Delete" class="btn btn-danger btn-lg rounded-pill custom-btn" />
+                    </form>
+                    <a asp-action="Index" class="btn btn-secondary btn-lg rounded-pill custom-btn">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

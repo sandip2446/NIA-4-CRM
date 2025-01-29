@@ -1,0 +1,114 @@
+﻿@model NIA_4_CRM.ViewModel.DashboardVM
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <!-- Card 1: Active Members -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg text-center custom-card">
+                <div class="card-body">
+                    <img src="/images/activeBusiness.png" class="card-img-top custom-card-img" alt="Active Members">
+                    <h5 class="card-title fw-bold">Active Businesses</h5>
+                    <p class="text-muted">Currently managing businesses</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="text-dark fw-bold">@Model.ActiveMembers Total</span>
+                    </div>
+                    <div class="mt-3">
+                        <a asp-action="ActiveMembers" class="btn btn-danger rounded-pill">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Expired Members -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg text-center custom-card">
+                <div class="card-body">
+                    <img src="/images/cancellation.png" class="card-img-top custom-card-img" alt="Expired Members">
+                    <h5 class="card-title fw-bold">Cancelled Businesses</h5>
+                    <p class="text-muted">Members with cancelled status</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="text-dark fw-bold">@Model.ExpiredMembers Total</span>
+                    </div>
+                    <div class="mt-3">
+                        <a asp-action="ExpiredMembers" class="btn btn-danger rounded-pill">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Total Members -->
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-lg text-center custom-card">
+                <div class="card-body">
+                    <img src="/images/active Opportunity.png" class="card-img-top custom-card-img" alt="Total Members">
+                    <h5 class="card-title fw-bold">Active Opportunities</h5>
+                    <p class="text-muted">Explore growth opportunities</</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span class="text-dark fw-bold">@Model.TotalMembers Total</span>
+                    </div>
+                    <div class="mt-3">
+                        <a asp-action="TotalMembers" class="btn btn-danger rounded-pill">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <h3>Recent Members</h3>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover shadow-lg">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Organization Name</th>
+                        <th>Membership Type</th>
+                        <th>Contact Person</th>
+                        <th>Membership Start Date</th>
+                        <th>Membership Renewal Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var member in Model.RecentMembers)
+                    {
+                        <tr>
+                            <td>@member.Organization.OrgName</td>
+                            <td>@member.MembershipType.MembershipName</td>
+                            <td>@member.Contact.FullName</td>
+                            <td>@member.MembershipStartDate?.ToString("MM/dd/yyyy")</td>
+                            <td>@member.MembershipRenewDate?.ToString("MM/dd/yyyy")</td>
+                            <td>@member.Status</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="mt-5">
+        <h3>Membership Type</h3>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover shadow-lg">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Membership Type</th>
+                        <th>Number of Businesses</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var membershipTypeCount in Model.MembershipTypeCounts)
+                    {
+                        <tr>
+                            <td>@membershipTypeCount.MembershipTypeName</td>
+                            <td>@membershipTypeCount.MemberCount Businesses</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

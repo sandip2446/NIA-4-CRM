@@ -1,0 +1,48 @@
+﻿@model IEnumerable<NIA_4_CRM.Models.Contact>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="display-4 text-center my-4">Contacts List</h1>
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col text-right">
+            <a asp-action="Create" class="btn btn-danger btn-lg rounded-pill custom-btn">Create New</a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover shadow-lg">
+            <thead class="thead-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.First().FirstName)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().MiddleName)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().LastName)</th>
+                    <th class="phone-column">@Html.DisplayNameFor(model => model.First().Phone)</th>
+                    <th class="email-column">@Html.DisplayNameFor(model => model.First().Email)</th>
+                    <th>@Html.DisplayNameFor(model => model.First().DOB)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.MiddleName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+                        <td class="phone-column">@Html.DisplayFor(modelItem => item.Phone)</td>
+                        <td class="email-column">@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DOB)</td>
+                        <td class="text-nowrap">
+                            <a asp-action="Edit" asp-route-id="@item.ID" class="btn btn-outline-danger btn-sm action-btn">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-outline-danger btn-sm action-btn">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-outline-danger btn-sm action-btn">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

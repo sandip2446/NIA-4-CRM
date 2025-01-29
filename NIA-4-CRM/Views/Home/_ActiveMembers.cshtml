@@ -1,0 +1,42 @@
+﻿@model IEnumerable<NIA_4_CRM.Models.Member>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover shadow-lg">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Organization Name</th>
+                <th scope="col">Membership Type</th>
+                <th scope="col">Contact Person</th>
+                <th scope="col">Membership Start Date</th>
+                <th scope="col">Membership Renewal Date</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var member in Model)
+            {
+                <tr>
+                    <td>@member.Organization.OrgName</td>
+                    <td>@member.MembershipType.MembershipName</td>
+                    <td>@member.Contact.FullName</td>
+                    <td>@member.MembershipStartDate?.ToString("MM/dd/yyyy")</td>
+                    <td>@member.MembershipRenewDate?.ToString("MM/dd/yyyy")</td>
+                    <td>
+                        @if (member.Status == Status.Active)
+                        {
+                            <span class="badge badge-success">Active</span>
+                        }
+                        else if (member.Status == Status.Expired)
+                        {
+                            <span class="badge badge-danger">Expired</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-secondary">@member.Status</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

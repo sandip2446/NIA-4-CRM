@@ -1,0 +1,29 @@
+﻿@model IEnumerable<NIA_4_CRM.Models.Member>
+
+<div class="table-responsive">
+    <table class="table table-bordered table-hover shadow-lg">
+        <thead class="thead-dark">
+            <tr>
+                <th>Organization Name</th>
+                <th>Membership Type</th>
+                <th>Contact Person</th>
+                <th>Membership Start Date</th>
+                <th>Membership Renewal Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var member in Model)
+            {
+                <tr>
+                    <td>@member.Organization.OrgName</td>
+                    <td>@member.MembershipType.MembershipName</td>
+                    <td>@member.Contact.FullName</td>
+                    <td>@member.MembershipStartDate?.ToString("MM/dd/yyyy")</td>
+                    <td>@member.MembershipRenewDate?.ToString("MM/dd/yyyy")</td>
+                    <td>@member.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
